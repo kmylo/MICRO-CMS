@@ -1,5 +1,6 @@
 import { RiSearch2Line } from "react-icons/ri";
 import { Label } from "../../../pages/TmpAll";
+import Button from "../../atoms/Button/Button";
 
 const SearchBox = ({
   btnTxt = "Search",
@@ -10,7 +11,7 @@ const SearchBox = ({
   value
 }): JSX.Element => {
   return (
-    <div>
+    <div className="sm:px-4">
       <Label />
       <div className="search-wrapper flex">
         <div className="search-control-group w-full relative">
@@ -26,13 +27,14 @@ const SearchBox = ({
             className="search-input bg-[#1F1D2B] w-full py-2 pl-10 pr-4 rounded-lg2 text-gray-300 outline-none"
           />
         </div>
-        <button
-          className="btn btn-secondary btn-sm rounded-s-none pt-3.5 pb-2.5 h-full"
+        <Button
+          variant="secondary"
+          className=" btn-sm rounded-s-none pt-3.5 pb-2.5 h-full"
           onClick={handleSearch}
           disabled={disabledBtn}
         >
           {btnTxt}
-        </button>
+        </Button>
       </div>
     </div>
   );

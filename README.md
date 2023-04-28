@@ -1,10 +1,28 @@
-# Vite + React
+## Links
 
-This is a [Vite](https://vitejs.dev) project together with React.
+- Github: https://github.com/kmylo/MICRO-CMS-CHALL
+- App: https://micro-cms-chall.vercel.app/
+- Storybook Demo: https://micro-cms-chall-storybook.vercel.app/
 
-[![Edit in CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/github/codesandbox/codesandbox-template-vite-react/main)
+## Quick Start
 
-[Configuration](https://codesandbox.io/docs/projects/learn/setting-up/tasks) has been added to optimize it for [CodeSandbox](https://codesandbox.io/dashboard).
+```
+1. git clone https://github.com/kmylo/MICRO-CMS-CHALL.git
+
+2. cd MICRO-CMS-CHALL
+
+3. yarn
+
+4. yarn dev
+```
+
+## Atomic Design
+
+Run the project's Storybook to see the atoms, molecules, organisms, templates, and pages,
+
+>  `yarn run storybook`
+
+Open [http://localhost:6006]
 
 ## Resources
 

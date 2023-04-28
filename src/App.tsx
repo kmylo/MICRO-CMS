@@ -1,21 +1,22 @@
-import { MainRouter } from "./containers/MainRouter";
-import { MainLayout } from "./layouts/MainLayout";
-import { APP_ROUTES } from "./utils/Routes";
-
-import "./App.css";
 import { Suspense } from "react";
 import { PostsContextProvider } from "./context/PostsContext";
+
+import MainRouter from "./components/organisms/MainRouter";
+import Main from "./components/templates/Main";
+import { APP_ROUTES } from "./routes/Routes";
+
+import "./App.css";
 
 function App() {
   return (
     <>
-      <Suspense fallback={<span>Loading...</span>}>
+      <Suspense fallback={<Loading />}>
         <PostsContextProvider>
-          <MainLayout>
-            <main className="main-container">
+          <Main>
+            <main className="main-container mb-4 px-4">
               <MainRouter routes={APP_ROUTES} />
             </main>
-          </MainLayout>
+          </Main>
         </PostsContextProvider>
       </Suspense>
     </>
@@ -23,3 +24,9 @@ function App() {
 }
 
 export default App;
+
+const Loading = ({ loadingTxt = "Loading..." }) => (
+  <div className="loading-wrapper">
+    <span>{loadingTxt}</span>
+  </div>
+);

@@ -26,7 +26,6 @@ const SearchPosts = () => {
   );
 
   const onChange = (event) => {
-    // setQuery(event.target.value.trim());
     setQuery(event.target.value);
   };
   const onSearch = (searchTerm) => {

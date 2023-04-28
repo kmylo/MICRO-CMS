@@ -1,22 +1,13 @@
-const IMG_URL = "https://placehold.co/600x400?text=Hello+World2";
-export const AboutPage = () => {
+const AboutPage = () => {
   return (
-    <div className="someclass text-left">
-      {/* <h1>ABOUT</h1>
-      <div className="text-center">
-        <img src={IMG_URL} alt="monster" loading="lazy" />
-      </div>
-      <p className="py-6">
-        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-        excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a
-        id nisi.
-      </p> */}
+    <div className="text-left">
+      {/* TODO: create atoms*/}
       <div className="card lg:card-side bg-base-100 shadow-xl">
-        <figure className="flex-[1_0_auto]">
+        <figure className="flex-[1_0_auto] p-3 ml-3">
           <img
+            loading="lazy"
             alt="Jhon Doe"
             src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&h=300"
-            // src="https://daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.jpg"
             className="my-Avatar-img rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"
           />
         </figure>
@@ -52,3 +43,5 @@ export const AboutPage = () => {
     </div>
   );
 };
+
+export default AboutPage;

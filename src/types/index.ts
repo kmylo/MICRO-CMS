@@ -15,9 +15,9 @@ export interface IPost {
   [TITLE]: string;
   [AUTHOR]?: string;
   [CONTENT]: string | React.ReactNode;
-  [SLUG]: string;
+  [SLUG]?: string;
   [CREATED_AT]: Date;
-  [TAGS]?: string[];
+  // [TAGS]?: string[];
 }
 
 export interface ContactInfo {

@@ -9,16 +9,18 @@
     "ecmaFeatures": {
       "jsx": true
     },
-    "sourceType": "module",
-    "project": ["./tsconfig.json"]
+    // "project": ["./tsconfig.json"],
+    "sourceType": "module"
   },
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
-    // "plugin:jsx-a11y/recommended",
     "plugin:prettier/recommended",
-    "plugin:import/recommended"
+    "plugin:import/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript"
   ],
   "ignorePatterns": ["!**/*", "config/**/*", "scripts/**/*"],
   "reportUnusedDisableDirectives": true,
@@ -41,7 +43,6 @@
       "rules": {}
     }
   ],
-
   "plugins": [
     "import",
     "react",
@@ -51,17 +52,7 @@
   ],
   "rules": {
     "prettier/prettier": 0,
-    // "prettier/prettier": ["error", {}, { "usePrettierrc": true }],
     "react/react-in-jsx-scope": "off",
-    // "jsx-a11y/accessible-emoji": "off",
-    // "jsx-a11y/anchor-is-valid": [
-    //   "error",
-    //   {
-    //     "components": ["Link"],
-    //     "specialLink": ["hrefLeft", "hrefRight"],
-    //     "aspects": ["invalidHref", "preferButton"]
-    //   }
-    // ],
     "no-unused-vars": "off",
     "no-duplicate-imports": "warn",
     "import/no-anonymous-default-export": "off",
@@ -70,6 +61,7 @@
     "no-throw-literal": "off",
     "prefer-const": "warn",
     "no-shadow": "off",
+    // "unused-imports/no-unused-imports": "error",
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
     "react-hooks/rules-of-hooks": "error",
@@ -77,7 +69,6 @@
     "react/prop-types": "off",
     "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }],
     "@typescript-eslint/no-use-before-define": ["error"],
-    // "@typescript-eslint/no-unused-vars": ["error"],
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-shadow": ["error"],

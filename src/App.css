@@ -1,8 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.hero > * {
+  @apply col-start-1 row-start-1;
+}
+@layer utilities {
+  .h-3.25 {
+    height: 13px;
+  }
+}
+
+html,
+body {
+  height: 100%;
+  background-color: #262837;
+  min-height: 100%;
+}
+
+/* body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+} */
+
+/* 
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+} */
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  height: 100vh;
+  text-align: center;
+}
+
+body {
+  text-align: left;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    text-align: left;
+    background-color: #262837;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+  }
 }
 
 .logo {
@@ -32,51 +88,35 @@
   }
 }
 
-.card {
-  padding: 2em;
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
 }
 
-.read-the-docs {
-  color: #888;
-}
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+button:hover {
+  border-color: #646cff;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(1) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
 }

@@ -27,15 +27,7 @@ export const filterByFieldsTs = <T extends Record<string, any>>({
     fields?.some((key) => item[key].toLowerCase().includes(query.toLowerCase()))
   );
 
-// // export const filterByFields = (query, arrayData, fields) => {
-// //   if (query.length < 1) return [];
-// //   return arrayData?.filter((item) =>
-// //     fields?.some((key) => item[key].toLowerCase().includes(query.toLowerCase()))
-// //   );
-// // };
-
 export const filterByFields = (query, arrayData, fields) => {
-  // if (query.length < 1) return [];
   const searchTerm = query.toLowerCase().trim();
   return arrayData?.filter((item) =>
     fields?.some(
@@ -73,3 +65,8 @@ export const fullToLocaleDateString = (date: Date = new Date()) =>
 
 export const randomDatetoLocaleString = () =>
   fullToLocaleDateString(randomDate());
+
+export const randomId = () =>
+  Math.floor(Math.random() * Date.now()).toString(16);
+
+

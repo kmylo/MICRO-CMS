@@ -1,5 +1,3 @@
-// molecules/TextArea.tsx
-
 import React, { ChangeEventHandler, forwardRef } from "react";
 import cx from "classnames";
 
