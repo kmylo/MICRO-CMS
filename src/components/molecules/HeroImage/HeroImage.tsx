@@ -41,7 +41,7 @@ const HeroImage = () => {
       <div className="hero-content text-center text-neutral-content and cls03">
         <div className="max-w-md">
           <h1 className="mb-5 text-5xl font-bold">
-            Breaking Bad Atomig Design
+            Breaking Bad Atomic Design (WIP)
           </h1>
           <p className="mb-5">
             Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
