@@ -37,7 +37,7 @@ export const APP_ROUTES: AppRoute[] = [
     ]
   },
   {
-    element: <div className="border">New Post</div>,
+    element: <div className="border">New Post (WIP)</div>,
     path: `${basePostRoute}/new`
   },
   {
