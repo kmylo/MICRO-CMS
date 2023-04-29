@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { IPost } from "../../../types";
 import HtmlRender from "../../atoms/HtmlRender";
 import HtmlEditor from "../HtmlEditor";
@@ -7,7 +8,12 @@ interface PostFormContentEditorProps {
 }
 
 const PostFormContentEditor = ({ post }: PostFormContentEditorProps) => {
-  const editableHtml = post?.content;
+  const [editableHtml, setEditableHtml] = useState(post?.content);
+
+  const handleEditHtml = (value) => {
+    console.log("edit", { value });
+    setEditableHtml(value);
+  };
   return (
     <>
       <div className="grid grid-cols-2 gap-4 border p-3 my-5">
@@ -17,7 +23,7 @@ const PostFormContentEditor = ({ post }: PostFormContentEditorProps) => {
             <HtmlEditor
               {...{
                 editableHtml,
-                handleEditHtml: (e) => console.log("edit", { e })
+                handleEditHtml
               }}
             />
           </div>
