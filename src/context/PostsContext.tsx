@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useContext, useMemo } from "react";
+import { createContext, ReactNode, useContext, useMemo, useState } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { IPost } from "../types";
 
@@ -19,6 +19,7 @@ PostsContext.displayName = "Posts";
 
 const PostsContextProvider = ({ children }: ContextProviderProps) => {
   const [posts, setPosts] = useLocalStorage("posts", initState.posts);
+
   const postsContextValue = useMemo(
     () => ({ posts, setPosts }),
     [posts, setPosts]

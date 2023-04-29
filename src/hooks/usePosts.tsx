@@ -8,12 +8,14 @@ const usePosts = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const { posts, setPosts } = usePostsContext();
 
-  const handleUpdatePosts = ({ data }: { data: IPost[] }) => {
+  const handleUpdatePosts = (data: IPost[]) => {
     return setPosts(data);
   };
 
   useEffect(() => {
+    console.log("is usefx fetching");
     const fetchData = async () => {
+      if (posts?.length > 0) return;
       getPosts()
         .then((data) => {
           setIsLoaded(true);
@@ -29,7 +31,7 @@ const usePosts = () => {
         });
     };
     fetchData();
-  }, []);
+  }, [error, posts.length, setPosts]);
 
   return { isLoaded, error, posts, handleUpdatePosts };
 };
