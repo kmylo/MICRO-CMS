@@ -7,3 +7,10 @@ export const getPosts = async (): Promise<IPost[]> =>
       resolve(blogData.posts);
     }, 200)
   );
+
+// export const createPost = async (): Promise<IPost[]> =>
+//   new Promise((resolve) =>
+//     setTimeout(() => {
+//       resolve(blogData.posts);
+//     }, 200)
+//   );

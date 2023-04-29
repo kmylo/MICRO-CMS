@@ -76,3 +76,24 @@ export const randomDatetoLocaleString = () =>
 
 export const randomId = () =>
   Math.floor(Math.random() * Date.now()).toString(16);
+
+export const updatePosts = (initialState, updatedPost, handler) => {
+  const newState = initialState.map((currPost) => {
+    if (currPost.id === updatedPost.id) {
+      const res = { ...currPost, ...updatedPost };
+      return res;
+    }
+    return currPost;
+  });
+  handler(newState);
+};
+
+export const createPost = (initialState, newPost, handler) => {
+  const newState = [...initialState, newPost];
+
+  handler(newState);
+};
+
+// const addObjectToArray = obj => {
+//   setEmployees(current => [...current, obj]);
+// };

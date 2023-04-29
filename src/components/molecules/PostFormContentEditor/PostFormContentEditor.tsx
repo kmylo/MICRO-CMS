@@ -1,7 +1,13 @@
+import { IPost } from "../../../types";
 import HtmlRender from "../../atoms/HtmlRender";
 import HtmlEditor from "../HtmlEditor";
 
-const PostFormContentEditor = ({ post }) => {
+interface PostFormContentEditorProps {
+  post?: IPost;
+}
+
+const PostFormContentEditor = ({ post }: PostFormContentEditorProps) => {
+  const editableHtml = post?.content;
   return (
     <>
       <div className="grid grid-cols-2 gap-4 border p-3 my-5">
@@ -10,7 +16,7 @@ const PostFormContentEditor = ({ post }) => {
           <div className="m-3 flex grow">
             <HtmlEditor
               {...{
-                editableHtml: post.content,
+                editableHtml,
                 handleEditHtml: (e) => console.log("edit", { e })
               }}
             />
@@ -21,7 +27,7 @@ const PostFormContentEditor = ({ post }) => {
           Live View
           <div className="m-3 flex h-96 overflow-y-auto grow2 border p-3 bg-white text-black">
             {/* <PostView post={post} /> */}
-            <HtmlRender {...{ editableHtml: post?.content }} />
+            <HtmlRender {...{ editableHtml }} />
           </div>
         </div>
       </div>

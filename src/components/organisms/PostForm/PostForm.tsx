@@ -44,7 +44,7 @@ export const initialState = {
 };
 
 interface PostFormProps {
-  post: IPost | undefined;
+  post?: IPost;
   onSubmit: (formData: FormData) => void;
   handleCancelEdit: any;
 }
