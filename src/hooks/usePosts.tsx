@@ -13,7 +13,6 @@ const usePosts = () => {
   };
 
   useEffect(() => {
-    console.log("is usefx fetching");
     const fetchData = async () => {
       if (posts?.length > 0) return;
       getPosts()

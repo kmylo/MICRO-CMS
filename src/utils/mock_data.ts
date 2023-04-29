@@ -1,5 +1,5 @@
 import { BlogData } from "../types";
-import { randomDate } from ".";
+import { randomDate, randomId } from ".";
 import { bgHeroImg } from "./constants";
 
 export const singlePost = {
@@ -29,18 +29,20 @@ const blogData: BlogData = {
   },
   posts: [
     {
-      id: "1",
+      // id: "1",
+      id: randomId(),
       slug: "post01--rich-content-with-mdx",
       title: "Lorem ipsum dolor sit amet",
       author: "lao tsze",
       content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis sapien ac ipsum aliquet, vel elementum nulla consequat. Donec sed erat id ipsum vestibulum sollicitudin. Fusce aliquam sagittis lectus sit amet tincidunt. Donec eu est vel nisi bibendum auctor. Quisque semper, purus eu interdum mattis, justo nibh posuere elit, quis efficitur orci dolor eu justo.
         <img loading="lazy" alt="that" class="img-gallery" src="${bgHeroImg}">
         `,
-      createdAt: randomDate(),
-      tags: ["react", "next", "photo"]
+      createdAt: randomDate()
+      // tags: ["react", "next", "photo"]
     },
     {
-      id: "2",
+      // id: "2",
+      id: randomId(),
       slug: "post02",
       title: "Proin eu augue vel nisi",
       content: `Proin eu augue vel nisi dictum lacinia eu vel metus. Praesent lobortis nulla ac eros porttitor, sed egestas orci vehicula. Nullam rutrum ornare nulla, non aliquet massa consequat non. Nullam id mi a erat congue fringilla. Nam vel mi leo. Fusce eget eros vel mauris tempor ornare ac nec sapien. Aliquam hendrerit malesuada feugiat. Aliquam eget turpis quis orci facilisis tempor.
@@ -49,7 +51,8 @@ const blogData: BlogData = {
       createdAt: randomDate()
     },
     {
-      id: "3",
+      // id: "3",
+      id: randomId(),
       slug: "post03",
       title: "Section 1.10.33 Finibus Bonorum et Malorum",
       author: "Elon Musk",
@@ -59,7 +62,8 @@ const blogData: BlogData = {
       createdAt: randomDate()
     },
     {
-      id: "4",
+      // id: "4",
+      id: randomId(),
       slug: "post04",
       title: "At vero eos et accusamus et",
       author: "H. Rackham",
@@ -68,7 +72,8 @@ const blogData: BlogData = {
       createdAt: randomDate()
     },
     {
-      id: "5",
+      // id: "5",
+      id: randomId(),
       slug: "post05",
       title: "Inner html",
       content: `<h3 style="margin-bottom: 10px" onclick="javascript:window.alert('hello')">HTML rich text post!</h3>

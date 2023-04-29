@@ -5,12 +5,14 @@ import { lazy } from "react";
 import { AboutPage } from "../pages/AboutPage/AboutPage";
 
 import { ContactPage } from "../pages/ContactPage/ContactPage";
-import { NotFound, PostDetails, PostPage } from "../pages/TmpAll";
+import { PostDetails, PostPage } from "../pages/TmpAll";
 
 import { AppRoute } from "../types";
 import { basePostRoute } from "./constants";
 
 import PostEdit from "../pages/PostEdit";
+import PostCreate from "../pages/PostCreate";
+import NotFound from "../pages/NotFound";
 const HomePage = lazy(() => import("../pages/Home"));
 const BlogPage = lazy(() => import("../pages/Blog"));
 
@@ -37,7 +39,7 @@ export const APP_ROUTES: AppRoute[] = [
     ]
   },
   {
-    element: <div className="border">New Post (WIP)</div>,
+    element: <PostCreate />,
     path: `${basePostRoute}/new`
   },
   {
