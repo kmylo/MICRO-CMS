@@ -194,7 +194,7 @@ export const PostForm = ({
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     onSubmit(rest);
-    handleCancelEdit();
+    // handleCancelEdit();
   };
   const onDispatchField = (e, fieldName) =>
     dispatch({
