@@ -3,11 +3,22 @@ import {
   useMemo
 } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import PostForm from "../../components/organisms/PostForm";
 import usePosts from "../../hooks/usePosts";
 import { basePostRoute } from "../../utils/constants";
-import { PostForm } from "../TmpAll";
 
 const postKeyNav = "title";
+
+const updatePosts = (initialState, updatedPost, handler) => {
+  const newState = initialState.map((currPost) => {
+    if (currPost.id === updatedPost.id) {
+      const res = { ...currPost, ...updatedPost };
+      return res;
+    }
+    return currPost;
+  });
+  handler(newState);
+};
 
 export const PostEdit = () => {
   const { id, postParam } = useParams<{
@@ -23,27 +34,6 @@ export const PostEdit = () => {
     () => posts?.find((postItem) => postParam === postItem[postKeyNav]),
     [postParam, posts]
   );
-
-  // const history = useHistory();
-  // const post = posts.find((postItem) => postItem.id === id);
-
-  // useEffect(() => {
-  //   if (!currentPost) {
-  //     // history.push("/404");
-  //     navigate("/404");
-  //   }
-  // }, [currentPost, navigate]);
-
-  const updatePosts = (initialState, updatedPost, handler) => {
-    const newState = initialState.map((currPost) => {
-      if (currPost.id === updatedPost.id) {
-        const res = { ...currPost, ...updatedPost };
-        return res;
-      }
-      return currPost;
-    });
-    handler(newState);
-  };
 
   const handleSubmit = (formData: FormData) => {
     updatePosts(posts, formData, handleUpdatePosts);

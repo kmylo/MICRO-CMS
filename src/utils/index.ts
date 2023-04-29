@@ -73,3 +73,6 @@ export const fullToLocaleDateString = (date: Date = new Date()) =>
 
 export const randomDatetoLocaleString = () =>
   fullToLocaleDateString(randomDate());
+
+export const randomId = () =>
+  Math.floor(Math.random() * Date.now()).toString(16);
