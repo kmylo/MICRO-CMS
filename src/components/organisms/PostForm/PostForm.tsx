@@ -1,6 +1,7 @@
 import { FormEvent, useReducer } from "react";
 
 import { IPost } from "../../../types";
+import Button from "../../atoms/Button";
 import PostFormContentEditor from "../../molecules/PostFormContentEditor";
 
 function FormReducer(state, action) {
@@ -99,7 +100,7 @@ const PostForm = ({ post, onSubmit, handleCancelEdit }: PostFormProps) => {
 
   return (
     <>
-      PostForm
+      {/* PostForm */}
       <form autoComplete="off" onSubmit={handleSubmit}>
         <div>
           {formConfig.map(
@@ -154,18 +155,17 @@ const PostForm = ({ post, onSubmit, handleCancelEdit }: PostFormProps) => {
         </div> */}
         <PostFormContentEditor {...{ post }} />
 
-        <div className="button-container">
-          {/* TODO: make button component */}
-          <button
-            className="button button-primary form-button"
+        <div className="button-container my-5">
+          <Button
+            className="button button-primary form-button mr-2"
             type="submit"
             disabled={isLoading}
           >
             {isLoading ? "SAVING..." : "SAVE"}
-          </button>
-          <button className="button form-button" onClick={handleCancelEdit}>
+          </Button>
+          <Button className="button form-button" onClick={handleCancelEdit}>
             CANCEL
-          </button>
+          </Button>
         </div>
       </form>
     </>

@@ -7,22 +7,16 @@ const PostCreate = () => {
   const { posts, handleUpdatePosts } = usePosts();
   const navigate = useNavigate();
   const handleSubmit = (formData: FormData) => {
-    console.log({ formData });
-    // updatePosts(posts, formData, handleUpdatePosts);
     createPost(posts, formData, handleUpdatePosts);
     navigate("/blog");
   };
   const handleCancel = (e) => {
-    // navigate(`${basePostRoute}${currentPost?.title}`);
+    navigate("/blog");
   };
   return (
-    <div className="border">
-      <div>New Post (WIP2)</div>
-      <PostForm
-        // post={currentPost}
-        onSubmit={handleSubmit}
-        handleCancelEdit={handleCancel}
-      />
+    <div className="new-post-container">
+      <div>New Post</div>
+      <PostForm onSubmit={handleSubmit} handleCancelEdit={handleCancel} />
     </div>
   );
 };
