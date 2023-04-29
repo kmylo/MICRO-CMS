@@ -1,27 +1,13 @@
-import { useCallback, useEffect, useMemo } from "react";
+import {
+  //  useEffect,
+  useMemo
+} from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import usePosts from "../../hooks/usePosts";
 import { basePostRoute } from "../../utils/constants";
 import { PostForm } from "../TmpAll";
 
 const postKeyNav = "title";
-
-const updateState2 = (initialState, currentId, newData, setUpdatedState) => {
-  const newState = initialState.map((obj) => {
-    if (obj.id === currentId) {
-      const res = { ...obj, ...newData };
-      console.log({ res, obj, newData });
-      // return { ...obj, ...newData };
-      return res;
-    }
-
-    console.log({ obj });
-    return obj;
-  });
-  console.log({ newState });
-
-  setUpdatedState(newState);
-};
 
 export const PostEdit = () => {
   const { id, postParam } = useParams<{
@@ -34,7 +20,7 @@ export const PostEdit = () => {
   // const currentPost = posts.find((_post) => postParam === _post[postKeyNav]);
 
   const currentPost = useMemo(
-    () => posts?.find((_post) => postParam === _post[postKeyNav]),
+    () => posts?.find((postItem) => postParam === postItem[postKeyNav]),
     [postParam, posts]
   );
 
@@ -48,33 +34,23 @@ export const PostEdit = () => {
   //   }
   // }, [currentPost, navigate]);
 
-  const updateState = (initialState, updatedPost) => {
+  const updatePosts = (initialState, updatedPost, handler) => {
     const newState = initialState.map((currPost) => {
       if (currPost.id === updatedPost.id) {
         const res = { ...currPost, ...updatedPost };
-        console.log({ res, currPost, updatedPost });
-        // return { ...obj, ...newData };
         return res;
       }
-
-      console.log({ currPost });
       return currPost;
     });
-    console.log({ newState });
-    handleUpdatePosts(newState);
-    navigate("/blog");
+    handler(newState);
   };
 
   const handleSubmit = (formData: FormData) => {
-    console.log("handleSubmit", { currentPost, formData });
-    // handleUpdatePost(Number(id), formData);
-    // history.push(`/posts/${id}`);
-    updateState(posts, formData);
-
+    updatePosts(posts, formData, handleUpdatePosts);
+    navigate("/blog");
     // navigate(`/posts/${id}`);
   };
   const handleCancel = (e) => {
-    console.log("cancel and goback", { currentPost, e });
     navigate(`${basePostRoute}${currentPost?.title}`);
     // navigate(-1);
   };

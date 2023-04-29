@@ -189,7 +189,6 @@ export const PostForm = ({
 
   const [state, dispatch] = useReducer(FormReducer, mergedData);
   const { isLoading, error, ...rest } = state;
-  // const [content, setContent] = useState(post.content);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
