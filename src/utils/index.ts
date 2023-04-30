@@ -89,6 +89,7 @@ export const updatePosts = (initialState, updatedPost, handler) => {
 };
 
 export const createPost = (initialState, newPost, handler) => {
+  newPost.createdAt = randomDate();
   const newState = [...initialState, newPost];
 
   handler(newState);
