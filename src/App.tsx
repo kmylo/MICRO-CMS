@@ -1,21 +1,23 @@
-import { MainRouter } from "./containers/MainRouter";
-import { MainLayout } from "./layouts/MainLayout";
-import { APP_ROUTES } from "./utils/Routes";
-
-import "./App.css";
 import { Suspense } from "react";
 import { PostsContextProvider } from "./context/PostsContext";
+
+import MainRouter from "./components/organisms/MainRouter";
+import { APP_ROUTES } from "./routes/Routes";
+import Main from "./components/templates/Main";
+
+import "./App.css";
 
 function App() {
   return (
     <>
-      <Suspense fallback={<span>Loading...</span>}>
+      {/* <Suspense fallback={<span>Loading...</span>}> */}
+      <Suspense fallback={null}>
         <PostsContextProvider>
-          <MainLayout>
+          <Main>
             <main className="main-container">
               <MainRouter routes={APP_ROUTES} />
             </main>
-          </MainLayout>
+          </Main>
         </PostsContextProvider>
       </Suspense>
     </>

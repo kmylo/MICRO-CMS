@@ -3,7 +3,6 @@ import { ReactNode } from "react";
 import Logo from "../../atoms/Logo/Logo";
 import NavMenu from "../../molecules/NavMenu";
 import SearchPosts from "../SearchPosts";
-// import SearchBox from "../../molecules/SearchBox";
 
 export const Header = ({ children }: { children?: ReactNode }) => {
   return (
@@ -12,9 +11,6 @@ export const Header = ({ children }: { children?: ReactNode }) => {
         <Logo />
         <NavMenu />
         {children}
-        {/* <SiteSearch /> */}
-        {/* <SearchForm onSubmit={(value) => console.log(value)} /> */}
-        {/* <SearchBox onSubmit={(value) => console.log({ value })} /> */}
         <SearchPosts />
       </div>
     </header>
