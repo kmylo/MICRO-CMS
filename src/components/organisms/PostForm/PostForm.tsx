@@ -98,6 +98,17 @@ const PostForm = ({ post, onSubmit, handleCancelEdit }: PostFormProps) => {
     }
   ];
 
+  const handleUpdatePost = (value) => {
+    console.log({ value });
+    dispatch({
+      type: "field",
+      fieldName: "content",
+      payload: value
+    });
+  };
+
+  //some default form comp
+
   return (
     <>
       {/* PostForm */}
@@ -153,7 +164,7 @@ const PostForm = ({ post, onSubmit, handleCancelEdit }: PostFormProps) => {
             onChange={(event) => setContent(event.target.value)}
           />
         </div> */}
-        <PostFormContentEditor {...{ post }} />
+        <PostFormContentEditor {...{ post, handleUpdatePost }} />
 
         <div className="button-container my-5">
           <Button
