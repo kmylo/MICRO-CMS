@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { APP_ROUTES } from "../../../utils/Routes"; //TODO: check this as a service
+import { APP_ROUTES } from "../../../routes/Routes"; //TODO: check this as a service
 
 const NavMenu = () => {
   return (

@@ -8,7 +8,7 @@ import { ContactPage } from "../pages/ContactPage/ContactPage";
 import { PostDetails, PostPage } from "../pages/TmpAll";
 
 import { AppRoute } from "../types";
-import { basePostRoute } from "./constants";
+import { basePostRoute } from "../utils/constants";
 
 import PostEdit from "../pages/PostEdit";
 import PostCreate from "../pages/PostCreate";
