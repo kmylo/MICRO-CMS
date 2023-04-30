@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { PostsContextProvider } from "./context/PostsContext";
 
-import { MainRouter } from "./components/organisms/MainRouter";
+import MainRouter from "./components/organisms/MainRouter";
 import { APP_ROUTES } from "./routes/Routes";
 import Main from "./components/templates/Main";
 
