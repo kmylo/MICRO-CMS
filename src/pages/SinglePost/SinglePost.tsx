@@ -17,8 +17,9 @@ const SinglePost = () => {
   return (
     <div>
       <div className="blog-header flex flex-col md:flex-row md:justify-between md:items-center gap-4 pb-3">
-        <div><span className="text-xl">Read Post</span></div>
-        
+        <div>
+          <span className="text-xl uppercase">Read Post</span>
+        </div>
 
         <Button onClick={handleBtnClick}>EDIT POST</Button>
       </div>

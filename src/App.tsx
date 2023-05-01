@@ -14,7 +14,7 @@ function App() {
       <Suspense fallback={null}>
         <PostsContextProvider>
           <Main>
-            <main className="main-container mb-4">
+            <main className="main-container mb-4 px-4">
               <MainRouter routes={APP_ROUTES} />
             </main>
           </Main>
