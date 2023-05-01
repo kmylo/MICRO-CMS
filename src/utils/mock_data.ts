@@ -29,7 +29,6 @@ const blogData: BlogData = {
   },
   posts: [
     {
-      // id: "1",
       id: randomId(),
       slug: "post01--rich-content-with-mdx",
       title: "Lorem ipsum dolor sit amet",
@@ -41,7 +40,6 @@ const blogData: BlogData = {
       // tags: ["react", "next", "photo"]
     },
     {
-      // id: "2",
       id: randomId(),
       slug: "post02",
       title: "Proin eu augue vel nisi",
@@ -51,7 +49,6 @@ const blogData: BlogData = {
       createdAt: randomDate()
     },
     {
-      // id: "3",
       id: randomId(),
       slug: "post03",
       title: "Section 1.10.33 Finibus Bonorum et Malorum",
@@ -62,7 +59,6 @@ const blogData: BlogData = {
       createdAt: randomDate()
     },
     {
-      // id: "4",
       id: randomId(),
       slug: "post04",
       title: "At vero eos et accusamus et",
@@ -72,7 +68,6 @@ const blogData: BlogData = {
       createdAt: randomDate()
     },
     {
-      // id: "5",
       id: randomId(),
       slug: "post05",
       title: "Inner html",
