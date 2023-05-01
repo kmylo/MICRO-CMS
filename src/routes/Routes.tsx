@@ -1,7 +1,5 @@
 import { lazy } from "react";
 
-import { PostDetails } from "../pages/TmpAll";
-
 import { AppRoute } from "../types";
 import { basePostRoute } from "../utils/constants";
 

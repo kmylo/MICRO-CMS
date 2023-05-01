@@ -1,4 +1,3 @@
-// const bgHeroImg = "https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg"
 import { useNavigate } from "react-router-dom";
 import Button from "../../atoms/Button";
 
@@ -27,10 +26,7 @@ const HeroImage = () => {
             excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
             a id nisi.
           </p>
-          <Button
-            onClick={() => navigate("/blog")}
-            className="btn btn-primary transition duration-200 ease-in-out animation-btn"
-          >
+          <Button onClick={() => navigate("/blog")} className="btn btn-primary">
             Get Started
           </Button>
         </div>
@@ -46,11 +42,3 @@ const cls02 =
   "rounded-md hero-overlay h-full w-full bg-opacity-50 bg-slate-800/60";
 const cls03 =
   "text-opacity-100 text-center hero-content z-0 flex items-center justify-center max-w-screen-lg gap-4 p-4";
-{
-  /* <button
-            onClick={() => navigate("/blog")}
-            className="btn btn-primary and inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-btn text-base font-medium  uppercase tracking-widest min-h-3 leading-5 transition duration-200 ease-in-out animation-btn"
-          >
-            Get Started
-          </button> */
-}

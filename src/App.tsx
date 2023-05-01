@@ -10,8 +10,7 @@ import "./App.css";
 function App() {
   return (
     <>
-      {/* <Suspense fallback={<span>Loading...</span>}> */}
-      <Suspense fallback={null}>
+      <Suspense fallback={<Loading />}>
         <PostsContextProvider>
           <Main>
             <main className="main-container mb-4 px-4">
@@ -25,3 +24,9 @@ function App() {
 }
 
 export default App;
+
+const Loading = ({ loadingTxt = "Loading..." }) => (
+  <div className="loading-wrapper">
+    <span>{loadingTxt}</span>
+  </div>
+);
