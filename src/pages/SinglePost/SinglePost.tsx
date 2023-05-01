@@ -21,7 +21,9 @@ const SinglePost = () => {
           <span className="text-xl uppercase">Read Post</span>
         </div>
 
-        <Button onClick={handleBtnClick}>EDIT POST</Button>
+        <Button className="btn-secondary" onClick={handleBtnClick}>
+          EDIT POST
+        </Button>
       </div>
 
       <Post {...currentPost!} />

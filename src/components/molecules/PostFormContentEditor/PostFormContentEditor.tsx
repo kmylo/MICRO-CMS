@@ -15,7 +15,6 @@ const PostFormContentEditor = ({
   const [editableHtml, setEditableHtml] = useState(post?.content);
 
   const handleEditHtml = (value) => {
-    console.log("edit", { value });
     handleUpdatePost && handleUpdatePost(value);
     setEditableHtml(value);
   };

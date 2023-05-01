@@ -99,7 +99,6 @@ const PostForm = ({ post, onSubmit, handleCancelEdit }: PostFormProps) => {
   ];
 
   const handleUpdatePost = (value) => {
-    console.log({ value });
     dispatch({
       type: "field",
       fieldName: "content",
@@ -107,11 +106,9 @@ const PostForm = ({ post, onSubmit, handleCancelEdit }: PostFormProps) => {
     });
   };
 
-  //some default form comp
-
   return (
     <>
-      {/* PostForm */}
+      {/* PostForm */} {/* TODO: add some form comp with the post wrapper */}
       <form autoComplete="off" onSubmit={handleSubmit}>
         <div>
           {formConfig.map(
@@ -156,26 +153,21 @@ const PostForm = ({ post, onSubmit, handleCancelEdit }: PostFormProps) => {
             onChange={(event) => setTitle(event.target.value)}
           /> */}
         </div>
-        {/* <div>
-          <label htmlFor="content">Content:</label>
-          <textarea
-            id="content"
-            name="content"
-            // value={content}
-            onChange={(event) => setContent(event.target.value)}
-          />
-        </div> */}
+
         <PostFormContentEditor {...{ post, handleUpdatePost }} />
 
         <div className="button-container my-5">
           <Button
-            className="button button-primary form-button mr-2"
+            className="button btn-primary form-button mr-2"
             type="submit"
             disabled={isLoading}
           >
             {isLoading ? "SAVING..." : "SAVE"}
           </Button>
-          <Button className="button form-button" onClick={handleCancelEdit}>
+          <Button
+            className="form-button btn-secondary"
+            onClick={handleCancelEdit}
+          >
             CANCEL
           </Button>
         </div>
