@@ -6,13 +6,11 @@ import Post from "../../components/organisms/Post";
 import usePosts from "../../hooks/usePosts";
 
 import { basePostRoute } from "../../utils/constants";
-import { fullToLocaleDateString, slugify } from "../../utils";
 
 const Blog = () => {
   const { posts } = usePosts();
   const navigate = useNavigate();
   const handleBtnClick = () => {
-    console.log("click");
     navigate(`${basePostRoute}/new`);
   };
   return (
@@ -31,11 +29,10 @@ const Blog = () => {
 
       <div className="text-3xl pb-5">List of Posts</div>
       {posts?.map((postItem) => {
-        const { createdAt, title } = postItem;
-        const index = `${slugify(title)}${fullToLocaleDateString(createdAt)}`;
+        const { id } = postItem;
         return (
           <div
-            key={index}
+            key={id}
             className="post-content p-6 card bg-base-100 shadow-xl my-3"
           >
             <Post {...postItem} />

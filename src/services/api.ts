@@ -2,7 +2,7 @@ import { IPost } from "../types";
 import { randomDate } from "../utils";
 import blogData from "../utils/mock_data";
 
-export const createPost = (initialState, newPost, handler) => {
+export const createPost = (initialState: IPost[], newPost: IPost, handler) => {
   newPost.createdAt = randomDate();
   const newState = [...initialState, newPost];
   handler(newState);
