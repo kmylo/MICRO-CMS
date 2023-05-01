@@ -127,15 +127,16 @@ const PostForm = ({ post, onSubmit, handleCancelEdit }: PostFormProps) => {
             }) => (
               <div className="form-control mb-3" key={label}>
                 <label className="label">
-                  <span className="label-text">{label}</span>
+                  <span className="label-text uppercase text-xs text-sky-400/75">
+                    {label}
+                  </span>
                 </label>
                 <label className="input-group">
-                  {/* <span className="label-text">{label}</span> */}
                   <input
                     type={type}
                     name={field}
                     defaultValue={defaultValue}
-                    className="input input-bordered"
+                    className="input input-bordered w-full"
                     minLength={minLength}
                     maxLength={maxLength}
                     required={required}

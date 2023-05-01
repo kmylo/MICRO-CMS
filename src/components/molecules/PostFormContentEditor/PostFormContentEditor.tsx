@@ -5,10 +5,13 @@ import HtmlEditor from "../HtmlEditor";
 
 interface PostFormContentEditorProps {
   post?: IPost;
-  handleUpdatePost?:(value)=>void
+  handleUpdatePost?: (value) => void;
 }
 
-const PostFormContentEditor = ({ post, handleUpdatePost }: PostFormContentEditorProps) => {
+const PostFormContentEditor = ({
+  post,
+  handleUpdatePost
+}: PostFormContentEditorProps) => {
   const [editableHtml, setEditableHtml] = useState(post?.content);
 
   const handleEditHtml = (value) => {
@@ -18,9 +21,9 @@ const PostFormContentEditor = ({ post, handleUpdatePost }: PostFormContentEditor
   };
   return (
     <>
-      <div className="grid grid-cols-2 gap-4 border p-3 my-5">
+      <div className="grid grid-cols-2 gap-4 border rounded-sm p-3 my-5">
         <div className="h-fullb flex flex-col">
-          Editor
+          <div className="title uppercase">Editor</div>
           <div className="m-3 flex grow">
             <HtmlEditor
               {...{
@@ -32,8 +35,9 @@ const PostFormContentEditor = ({ post, handleUpdatePost }: PostFormContentEditor
         </div>
 
         <div className="h-fullb flex flex-col">
-          Live View
-          <div className="m-3 flex h-96 overflow-y-auto grow2 border p-3 bg-white text-black">
+          <div className="title uppercase"> Live View</div>
+
+          <div className="m-3 flex h-96 overflow-y-auto border p-3 bg-white text-black rounded-md">
             <HtmlRender {...{ editableHtml }} />
           </div>
         </div>

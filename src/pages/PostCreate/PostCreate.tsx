@@ -15,7 +15,9 @@ const PostCreate = () => {
   };
   return (
     <div className="new-post-container">
-      <div>New Post</div>
+      <div>
+        <span className="text-xl uppercase">New Post</span>
+      </div>
       <PostForm onSubmit={handleSubmit} handleCancelEdit={handleCancel} />
     </div>
   );
