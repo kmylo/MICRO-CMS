@@ -1,8 +1,8 @@
 import { FormEvent, useReducer } from "react";
 
-import { IPost } from "../../../types";
 import Button from "../../atoms/Button";
 import PostFormContentEditor from "../../molecules/PostFormContentEditor";
+import { IPost } from "../../../types";
 
 function FormReducer(state, action) {
   switch (action.type) {
