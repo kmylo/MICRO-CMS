@@ -1,5 +1,4 @@
-const IMG_URL = "https://placehold.co/600x400?text=Hello+World2";
-export const AboutPage = () => {
+const AboutPage = () => {
   return (
     <div className="someclass text-left">
       {/* <h1>ABOUT</h1>
@@ -52,3 +51,5 @@ export const AboutPage = () => {
     </div>
   );
 };
+
+export default AboutPage;
