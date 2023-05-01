@@ -1,8 +1,12 @@
 import { useNavigate } from "react-router-dom";
+
 import Button from "../../components/atoms/Button";
-import usePosts from "../../hooks/usePosts";
-import { basePostRoute } from "../../utils/constants";
 import Post from "../../components/organisms/Post";
+
+import usePosts from "../../hooks/usePosts";
+
+import { basePostRoute } from "../../utils/constants";
+import { fullToLocaleDateString, slugify } from "../../utils";
 
 const Blog = () => {
   const { posts } = usePosts();
@@ -26,16 +30,15 @@ const Blog = () => {
       </div>
 
       <div className="text-3xl pb-5">List of Posts</div>
-      {posts?.map((item, idx) => {
-        const { author, createdAt, content, title } = item;
-        // const createdDate = new Date(createdAt).toLocaleDateString();
-        // TODO: replace IDX
+      {posts?.map((postItem) => {
+        const { createdAt, title } = postItem;
+        const index = `${slugify(title)}${fullToLocaleDateString(createdAt)}`;
         return (
           <div
-            key={idx}
+            key={index}
             className="post-content p-6 card bg-base-100 shadow-xl my-3"
           >
-            <Post {...item} />
+            <Post {...postItem} />
           </div>
         );
       })}

@@ -71,7 +71,11 @@ const PostForm = ({ post, onSubmit, handleCancelEdit }: PostFormProps) => {
     event.preventDefault();
     onSubmit(rest);
   };
-  const onDispatchField = (e, fieldName) =>
+
+  const onDispatchField = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    fieldName: string
+  ) =>
     dispatch({
       type: "field",
       fieldName,

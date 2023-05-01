@@ -2,7 +2,8 @@ import { useMemo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import PostForm from "../../components/organisms/PostForm";
 import usePosts from "../../hooks/usePosts";
-import { updatePosts } from "../../utils";
+import { updatePosts } from "../../services/api";
+
 import { basePostRoute } from "../../utils/constants";
 
 const postKeyNav = "title";
@@ -25,24 +26,18 @@ export const PostEdit = () => {
     updatePosts(posts, formData, handleUpdatePosts);
     navigate("/blog");
   };
-  const handleCancel = (e) => {
+  const handleCancel = () => {
     navigate(`${basePostRoute}${currentPost?.title}`);
   };
 
   return (
     <div>
       <h1>Edit Post</h1>
-      {currentPost ? (
-        <>
-          <PostForm
-            post={currentPost}
-            onSubmit={handleSubmit}
-            handleCancelEdit={handleCancel}
-          />
-        </>
-      ) : (
-        <p>Loading...</p>
-      )}
+      <PostForm
+        post={currentPost}
+        onSubmit={handleSubmit}
+        handleCancelEdit={handleCancel}
+      />
     </div>
   );
 };
