@@ -1,7 +1,7 @@
 import PostForm from "../../components/organisms/PostForm";
 import usePosts from "../../hooks/usePosts";
 import { useNavigate } from "react-router-dom";
-import { createPost } from "../../utils";
+import { createPost } from "../../services/api";
 
 const PostCreate = () => {
   const { posts, handleUpdatePosts } = usePosts();
@@ -10,7 +10,7 @@ const PostCreate = () => {
     createPost(posts, formData, handleUpdatePosts);
     navigate("/blog");
   };
-  const handleCancel = (e) => {
+  const handleCancel = () => {
     navigate("/blog");
   };
   return (

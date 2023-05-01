@@ -27,15 +27,7 @@ export const filterByFieldsTs = <T extends Record<string, any>>({
     fields?.some((key) => item[key].toLowerCase().includes(query.toLowerCase()))
   );
 
-// // export const filterByFields = (query, arrayData, fields) => {
-// //   if (query.length < 1) return [];
-// //   return arrayData?.filter((item) =>
-// //     fields?.some((key) => item[key].toLowerCase().includes(query.toLowerCase()))
-// //   );
-// // };
-
 export const filterByFields = (query, arrayData, fields) => {
-  // if (query.length < 1) return [];
   const searchTerm = query.toLowerCase().trim();
   return arrayData?.filter((item) =>
     fields?.some(
@@ -77,24 +69,4 @@ export const randomDatetoLocaleString = () =>
 export const randomId = () =>
   Math.floor(Math.random() * Date.now()).toString(16);
 
-export const updatePosts = (initialState, updatedPost, handler) => {
-  const newState = initialState.map((currPost) => {
-    if (currPost.id === updatedPost.id) {
-      const res = { ...currPost, ...updatedPost };
-      return res;
-    }
-    return currPost;
-  });
-  handler(newState);
-};
 
-export const createPost = (initialState, newPost, handler) => {
-  newPost.createdAt = randomDate();
-  const newState = [...initialState, newPost];
-
-  handler(newState);
-};
-
-// const addObjectToArray = obj => {
-//   setEmployees(current => [...current, obj]);
-// };
