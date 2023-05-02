@@ -5,7 +5,7 @@ import Button from "../../atoms/Button";
 
 const bgHeroImg = "https://i.ytimg.com/vi/qdwKLY45sh4/maxresdefault.jpg";
 
-const HeroImage = () => {
+const Hero = () => {
   const navigate = useNavigate();
 
   return (
@@ -35,7 +35,7 @@ const HeroImage = () => {
   );
 };
 
-export default HeroImage;
+export default Hero;
 
 const cls01 = "grid place-items-center w-full h-screen bg-cover bg-center";
 const cls02 =

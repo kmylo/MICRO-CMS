@@ -20,8 +20,9 @@ const Blog = () => {
           <span className="text-xl">BLOG</span>
         </div>
         <Button
-          className="btn-secondary transition duration-200 ease-in-out animation-btn"
+          className="transition duration-200 ease-in-out animation-btn"
           onClick={handleBtnClick}
+          variant="secondary"
         >
           ADD NEW POST
         </Button>

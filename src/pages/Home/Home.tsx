@@ -1,11 +1,11 @@
-import HeroImage from "../../components/molecules/HeroImage/HeroImage";
+import Hero from "../../components/molecules/Hero";
 
 const Home = () => {
   return (
     <div className="mb-5">
      
       <div className="main-hero">
-        <HeroImage />
+        <Hero />
       </div>
 
       <p className="mt-5">
