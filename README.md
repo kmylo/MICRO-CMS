@@ -2,8 +2,7 @@
 
 - Github: https://github.com/kmylo/MICRO-CMS-CHALL
 - App: https://micro-cms-chall.vercel.app/
-- Storybook: https://micro-cms-chall-storybook.vercel.app/
-- Storybook Demo: https://atomic-demo.netlify.com/
+- Storybook Demo: https://micro-cms-chall-storybook.vercel.app/
 
 ## Quick Start
 
