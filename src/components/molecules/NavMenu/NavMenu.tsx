@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { APP_ROUTES } from "../../../routes/Routes"; //TODO: check this as a service
+import Logo from "../../atoms/Logo/Logo";
 
 const NavMenu = () => {
   return (
@@ -37,9 +38,9 @@ const NavMenu = () => {
             })}
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl flex-1 md:hidden">
-          LOGO daisyUI
-        </a>
+        <div className=" normal-case text-xl flex-1 md:hidden">
+          <Logo />
+        </div>
       </div>
       <nav className="hidden md:flex navbar navbar-dark">
         <ul className="menu menu-vertical2 md:menu-horizontal ">
