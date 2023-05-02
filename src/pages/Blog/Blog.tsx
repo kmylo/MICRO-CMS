@@ -6,6 +6,8 @@ import Post from "../../components/organisms/Post";
 import usePosts from "../../hooks/usePosts";
 
 import { basePostRoute } from "../../utils/constants";
+import { Fragment } from "react";
+import Card from "../../components/atoms/Card/Card";
 
 const Blog = () => {
   const { posts } = usePosts();
@@ -32,12 +34,13 @@ const Blog = () => {
       {posts?.map((postItem) => {
         const { id } = postItem;
         return (
-          <div
-            key={id}
-            className="post-content p-6 card bg-base-100 shadow-xl my-3"
-          >
-            <Post {...postItem} />
-          </div>
+          <Fragment key={id}>
+            <Card>
+              <div className="post-content">
+                <Post {...postItem} />
+              </div>
+            </Card>
+          </Fragment>
         );
       })}
     </div>
