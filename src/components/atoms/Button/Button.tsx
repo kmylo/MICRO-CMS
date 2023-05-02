@@ -1,7 +1,7 @@
 import { FC, ReactNode } from "react";
 import classNames from "classnames";
 
-type ButtonProps = {
+export type ButtonProps = {
   onClick?: () => void;
   type?: "button" | "submit" | "reset";
   className?: string;
@@ -19,10 +19,10 @@ const Button: FC<ButtonProps> = ({
   children
 }) => {
   const buttonClassNames = classNames(
-    "font-bold py-2 px-4 rounded focus:outline-none btn transition duration-200 ease-in-out animation-btn",
+    "font-bold py-2 px-4 rounded focus:outline-none transition duration-200 ease-in-out animation-btn",
     {
-      "text-white": variant === "primary",
-      "text-gray-700": variant === "secondary",
+      "btn btn-primary": variant === "primary",
+      "btn btn-secondary": variant === "secondary",
       "text-blue-500 hover:text-blue-700": variant === "link"
     },
     className
