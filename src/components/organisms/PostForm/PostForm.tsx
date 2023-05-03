@@ -3,32 +3,19 @@ import PostFormContentEditor from "../../molecules/PostFormContentEditor";
 import usePostForm from "../../../hooks/usePostForm";
 import { IFormConfig, IPost } from "../../../types";
 
-export const postFormConfig: IFormConfig[] = [
-  {
-    type: "text",
-    label: "title",
-    field: "title",
-    placeholder: "Enter title",
-    minLength: 2,
-    required: true
-  },
-  {
-    type: "text",
-    label: "author",
-    field: "author",
-    placeholder: "Author",
-    minLength: 2
-  }
-];
-
 interface PostFormProps {
   post?: IPost;
   onSubmit: (formData: FormData) => void;
   handleCancelEdit: any;
-  formConfig: IFormConfig[];
+  postFormConfig: IFormConfig[];
 }
 
-const PostForm = ({ post, onSubmit, handleCancelEdit }: PostFormProps) => {
+const PostForm = ({
+  post,
+  onSubmit,
+  handleCancelEdit,
+  postFormConfig
+}: PostFormProps) => {
   const { state, onDispatchField, handleSubmit, handleUpdatePostContent } =
     usePostForm({
       post,
