@@ -14,20 +14,18 @@ const SearchForm: React.FC<SearchFormProps> = ({
   searchBtnCta = "search"
 }) => {
   const [value, setValue] = useState("");
-  console.log({ value });
 
   const onChange = (event) => {
-    console.log({ onchangeEv: event.target.value });
     setValue(event.target.value);
   };
 
   const handleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
-    console.log({ evt });
+
     const input = evt.currentTarget.elements.namedItem(
       "search-input"
     ) as HTMLInputElement;
-    console.log({ input });
+
     setValue(input?.value);
     onSubmit(input?.value);
   };
@@ -35,7 +33,6 @@ const SearchForm: React.FC<SearchFormProps> = ({
   return (
     <div className="search-form min-w-[380px] min2-w-full">
       <form autoComplete="off" onSubmit={handleSubmit}>
-        {/* <label labelText={labelText} /> */}
         <div className="search-wrapper flex">
           <Input
             type="search"

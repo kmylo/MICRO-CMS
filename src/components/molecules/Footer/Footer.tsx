@@ -1,4 +1,4 @@
-import { TodayDate } from "../../../pages/TmpAll";
+import TodayDate from "../TodayDate";
 
 const Footer = () => (
   <div
@@ -9,4 +9,4 @@ const Footer = () => (
   </div>
 );
 
-export default Footer
+export default Footer;
