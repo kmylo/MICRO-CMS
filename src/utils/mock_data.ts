@@ -37,7 +37,6 @@ const blogData: BlogData = {
         <img loading="lazy" alt="that" class="img-gallery" src="${bgHeroImg}">
         `,
       createdAt: randomDate()
-      // tags: ["react", "next", "photo"]
     },
     {
       id: randomId(),

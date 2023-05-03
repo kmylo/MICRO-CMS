@@ -4,20 +4,19 @@ export enum PostKeys {
   AUTHOR = "author",
   CONTENT = "content",
   SLUG = "slug",
-  CREATED_AT = "createdAt",
-  TAGS = "tags"
+  CREATED_AT = "createdAt",  
 }
 
-const { POST_ID, TITLE, AUTHOR, CONTENT, SLUG, CREATED_AT, TAGS } = PostKeys;
+const { POST_ID, TITLE, AUTHOR, CONTENT, SLUG, CREATED_AT } = PostKeys;
 
 export interface IPost {
   [POST_ID]: string;
   [TITLE]: string;
   [AUTHOR]?: string;
-  [CONTENT]: string | React.ReactNode;
+  // [CONTENT]: string | React.ReactNode;
+  [CONTENT]: string;
   [SLUG]?: string;
   [CREATED_AT]: Date;
-  // [TAGS]?: string[];
 }
 
 export interface ContactInfo {
@@ -45,4 +44,15 @@ export interface AppRoute {
   title?: string;
   index?: boolean;
   children?: AppRoute[];
+}
+
+export interface IFormConfig {
+  type: string;
+  label: string;
+  field: string;
+  placeholder?: string;
+  minLength?: number;
+  maxLength?: number;
+  required?: boolean;
+  defaultValue?: string;
 }

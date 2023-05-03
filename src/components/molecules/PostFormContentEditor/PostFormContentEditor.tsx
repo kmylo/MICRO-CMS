@@ -5,17 +5,17 @@ import HtmlEditor from "../HtmlEditor";
 
 interface PostFormContentEditorProps {
   post?: IPost;
-  handleUpdatePost?: (value) => void;
+  handleUpdatePostContent?: (value: string) => void;
 }
 
 const PostFormContentEditor = ({
   post,
-  handleUpdatePost
+  handleUpdatePostContent
 }: PostFormContentEditorProps) => {
   const [editableHtml, setEditableHtml] = useState(post?.content);
 
-  const handleEditHtml = (value) => {
-    handleUpdatePost && handleUpdatePost(value);
+  const handleEditHtml = (value: string) => {
+    handleUpdatePostContent && handleUpdatePostContent(value);
     setEditableHtml(value);
   };
   return (
