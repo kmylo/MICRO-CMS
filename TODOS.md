@@ -1,15 +1,15 @@
 ## TODO
 
 - [x] Search Post (predictive)
-- [+] Post Form
-- [+] Create/Edit Post
+- [x] Post Form
+- [x] Create/Edit Post
 - [x] Localstorage
 - [+] Logo
-- [ ] fix header toggle
-- [ ] Responsive
+- [x] fix header toggle
+- [+] Responsive
 - [+] Atomic Design
 - [ ] Styling
-- [ ] StoryBooks
+- [+] StoryBooks
 - [ ] Error Boundary
 - [ ] React Helmet
 - [ ] Pagination
