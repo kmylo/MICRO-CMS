@@ -1,6 +1,6 @@
 import { RiSearch2Line } from "react-icons/ri";
-import { Label } from "../../../pages/TmpAll";
 import Button from "../../atoms/Button/Button";
+import Label from "../../atoms/Label/Label";
 
 const SearchBox = ({
   btnTxt = "Search",
