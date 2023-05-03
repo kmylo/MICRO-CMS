@@ -1,6 +1,6 @@
 import { IFormConfig } from "../types";
 
-export const locales: Intl.LocalesArgument = "es-AR";
+export const locales: Intl.LocalesArgument = "en-US";
 export const options: Intl.DateTimeFormatOptions = {
   weekday: "long",
   year: "numeric",
