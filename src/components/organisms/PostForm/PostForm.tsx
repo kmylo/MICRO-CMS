@@ -1,121 +1,34 @@
-import { FormEvent, useReducer } from "react";
-
 import Button from "../../atoms/Button";
 import PostFormContentEditor from "../../molecules/PostFormContentEditor";
-import { IPost } from "../../../types";
-
-function FormReducer(state, action) {
-  switch (action.type) {
-    case "field": {
-      return {
-        ...state,
-        [action.fieldName]: action.payload
-      };
-    }
-    case "success": {
-      return {
-        ...state,
-        isSaving: true,
-        isLoading: false
-      };
-    }
-    case "error": {
-      return {
-        ...state,
-        error: "Msg error!",
-        isSaving: false,
-        isLoading: false
-      };
-    }
-    default:
-      return state;
-  }
-}
-
-export const initialState = {
-  isLoading: false,
-  error: "",
-  id: "",
-  slug: "",
-  title: "",
-  author: "",
-  content: "",
-  createdAt: "",
-  tags: []
-};
+import usePostForm from "../../../hooks/usePostForm";
+import { IFormConfig, IPost } from "../../../types";
 
 interface PostFormProps {
   post?: IPost;
   onSubmit: (formData: FormData) => void;
   handleCancelEdit: any;
+  postFormConfig: IFormConfig[];
 }
 
-interface IFormConfig {
-  type: string;
-  label: string;
-  field: string;
-  placeholder?: string;
-  minLength?: number;
-  maxLength?: number;
-  required?: boolean;
-  defaultValue?: string;
-}
-
-const PostForm = ({ post, onSubmit, handleCancelEdit }: PostFormProps) => {
-  const mergedData = { ...initialState, ...post };
-
-  const [state, dispatch] = useReducer(FormReducer, mergedData);
-  const { isLoading, error, ...rest } = state;
-
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    onSubmit(rest);
-  };
-
-  const onDispatchField = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    fieldName: string
-  ) =>
-    dispatch({
-      type: "field",
-      fieldName,
-      payload: e.currentTarget.value
+const PostForm = ({
+  post,
+  onSubmit,
+  handleCancelEdit,
+  postFormConfig
+}: PostFormProps) => {
+  const { state, onDispatchField, handleSubmit, handleUpdatePostContent } =
+    usePostForm({
+      post,
+      onSubmit
     });
-
-  const formConfig: IFormConfig[] = [
-    {
-      type: "text",
-      label: "title",
-      field: "title",
-      placeholder: "Enter title",
-      minLength: 2,
-      defaultValue: post?.title,
-      required: true
-    },
-    {
-      type: "text",
-      label: "author",
-      field: "author",
-      placeholder: "Athor",
-      minLength: 2,
-      defaultValue: post?.author
-    }
-  ];
-
-  const handleUpdatePost = (value) => {
-    dispatch({
-      type: "field",
-      fieldName: "content",
-      payload: value
-    });
-  };
+  const { isLoading } = state;
 
   return (
     <>
       {/* PostForm */} {/* TODO: add some form comp with the post wrapper */}
       <form autoComplete="off" onSubmit={handleSubmit}>
         <div>
-          {formConfig.map(
+          {postFormConfig.map(
             ({
               type,
               label,
@@ -136,7 +49,7 @@ const PostForm = ({ post, onSubmit, handleCancelEdit }: PostFormProps) => {
                   <input
                     type={type}
                     name={field}
-                    defaultValue={defaultValue}
+                    defaultValue={defaultValue ?? post?.[field]}
                     className="input input-bordered w-full"
                     minLength={minLength}
                     maxLength={maxLength}
@@ -148,21 +61,13 @@ const PostForm = ({ post, onSubmit, handleCancelEdit }: PostFormProps) => {
               </div>
             )
           )}
-          {/* <label htmlFor="title">Title:</label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            value={title}
-            onChange={(event) => setTitle(event.target.value)}
-          /> */}
         </div>
 
-        <PostFormContentEditor {...{ post, handleUpdatePost }} />
+        <PostFormContentEditor {...{ post, handleUpdatePostContent }} />
 
-        <div className="button-container my-5">
+        <div className="form-button button-container my-5">
           <Button
-            className="button btn-primary form-button mr-2"
+            className="form-button btn-primary mr-2"
             type="submit"
             disabled={isLoading}
           >

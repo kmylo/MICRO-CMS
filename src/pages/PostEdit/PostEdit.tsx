@@ -4,7 +4,7 @@ import PostForm from "../../components/organisms/PostForm";
 import usePosts from "../../hooks/usePosts";
 import { updatePosts } from "../../services/api";
 
-import { basePostRoute } from "../../utils/constants";
+import { basePostRoute, postFormConfig } from "../../utils/constants";
 
 const postKeyNav = "title";
 
@@ -37,6 +37,7 @@ export const PostEdit = () => {
         post={currentPost}
         onSubmit={handleSubmit}
         handleCancelEdit={handleCancel}
+        postFormConfig={postFormConfig}
       />
     </div>
   );

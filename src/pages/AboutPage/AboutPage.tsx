@@ -8,7 +8,7 @@ const AboutPage = () => {
             loading="lazy"
             alt="Jhon Doe"
             src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&h=300"
-            className="my-Avatar-img rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"
+            className="my-Avatar-img max-w-full h-auto rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"
           />
         </figure>
         <div className="card-body ">

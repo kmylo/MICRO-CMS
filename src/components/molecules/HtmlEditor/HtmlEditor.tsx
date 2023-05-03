@@ -1,6 +1,12 @@
 import TextArea from "../../atoms/TextArea";
 
-const HtmlEditor = ({ editableHtml, handleEditHtml }) => {
+const HtmlEditor = ({
+  editableHtml,
+  handleEditHtml
+}: {
+  editableHtml: string | undefined;
+  handleEditHtml: (value: string) => void;
+}) => {
   const handleChange = (event: { target: { value: string } }) =>
     handleEditHtml(event.target.value);
   return (

@@ -5,22 +5,27 @@ import HtmlEditor from "../HtmlEditor";
 
 interface PostFormContentEditorProps {
   post?: IPost;
-  handleUpdatePost?: (value) => void;
+  handleUpdatePostContent?: (value: string) => void;
 }
 
 const PostFormContentEditor = ({
   post,
-  handleUpdatePost
+  handleUpdatePostContent
 }: PostFormContentEditorProps) => {
   const [editableHtml, setEditableHtml] = useState(post?.content);
 
-  const handleEditHtml = (value) => {
-    handleUpdatePost && handleUpdatePost(value);
+  const handleEditHtml = (value: string) => {
+    handleUpdatePostContent && handleUpdatePostContent(value);
     setEditableHtml(value);
   };
   return (
     <>
-      <div className="grid grid-cols-2 gap-4 border rounded-sm p-3 my-5">
+      <label className="label">
+        <span className="label-text uppercase text-xs text-sky-400/75">
+          Content
+        </span>
+      </label>
+      <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-4 border border-slate-500/25 border-opacity-20 rounded-sm p-3 mb-5">
         <div className="h-fullb flex flex-col">
           <div className="title uppercase">Editor</div>
           <div className="m-3 flex grow">
