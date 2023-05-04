@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import { RiSearch2Line } from "react-icons/ri";
 import Input from "../../atoms/Input";
 
 type SearchFormProps = {
@@ -10,7 +9,6 @@ type SearchFormProps = {
 
 const SearchForm: React.FC<SearchFormProps> = ({
   onSubmit,
-  // labelText,
   searchBtnCta = "search"
 }) => {
   const [value, setValue] = useState("");
