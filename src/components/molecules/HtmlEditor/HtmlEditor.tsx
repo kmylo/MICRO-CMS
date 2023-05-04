@@ -13,6 +13,7 @@ const HtmlEditor = ({
     <TextArea
       id="htmlEditor"
       name="htmlEditor"
+      placeholder="Enter text or plain html"
       defaultStyle={false}
       className="textarea textarea-bordered w-full resize-none"
       value={editableHtml}
