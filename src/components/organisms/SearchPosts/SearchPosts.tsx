@@ -12,39 +12,56 @@ import { basePostRoute } from "../../../utils/constants";
 const dataKey = PostKeys.TITLE;
 const fields = [dataKey];
 const btnTxt = "Search";
+const postKeyNav = "title";
 
-const SearchPosts = () => {
+const useSearchPosts = () => {
   const navigate = useNavigate();
-
   const { posts } = usePosts();
   const [query, setQuery] = useState("");
 
-  let disabledBtn = query.length < 1;
+  const dataKey = PostKeys.TITLE;
+  const fields = [dataKey];
+
   const filteredData = useMemo(
     () => filterByFields(query, posts, fields),
     [posts, query]
   );
 
-  const onChange = (event) => {
+  const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);
   };
-  const onSearch = (searchTerm) => {
+
+  const onSearch = (searchTerm: string) => {
     setQuery(searchTerm);
   };
+
   const handleSearch = () => {
     onSearch(query);
-
-    const postKeyNav = "title";
-
     const currentPost = posts.find((post) => query === post[postKeyNav]);
-
     if (currentPost) {
-      disabledBtn = false;
       navigate(`${basePostRoute}${currentPost?.title}`);
     }
     setQuery("");
   };
-  const handleOptionsClick = (option) => onSearch(option[dataKey]);
+
+  const handleOptionsClick = (option: { [key: string]: any }) => {
+    onSearch(option[dataKey]);
+  };
+
+  return {
+    filteredData,
+    handleOptionsClick,
+    handleSearch,
+    onChange,
+    query
+  };
+};
+
+const SearchPosts = () => {
+  const { filteredData, handleOptionsClick, handleSearch, onChange, query } =
+    useSearchPosts();
+
+  const disabledBtn = query.length < 1;
 
   const searchOptions = {
     searchData: filteredData,
