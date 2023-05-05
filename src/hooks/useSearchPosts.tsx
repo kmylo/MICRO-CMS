@@ -2,7 +2,12 @@ import { useNavigate } from "react-router-dom";
 import usePosts from "./usePosts";
 import { useMemo, useState } from "react";
 import { filterByFields } from "../utils";
-import { basePostRoute, dataKey, postFilterFields, postKeyNav } from "../utils/constants";
+import {
+  basePostRoute,
+  dataKey,
+  postFilterFields,
+  postKeyNav
+} from "../utils/constants";
 
 const useSearchPosts = () => {
   const navigate = useNavigate();
@@ -22,11 +27,12 @@ const useSearchPosts = () => {
     setQuery(searchTerm);
   };
 
+  const selectedPost = posts.find((post) => query === post[postKeyNav]);
+  
   const handleSearch = () => {
     onSearch(query);
-    const currentPost = posts.find((post) => query === post[postKeyNav]);
-    if (currentPost) {
-      navigate(`${basePostRoute}${currentPost?.title}`);
+    if (selectedPost) {
+      navigate(`${basePostRoute}${selectedPost?.[dataKey]}`);
     }
     setQuery("");
   };
@@ -40,8 +46,9 @@ const useSearchPosts = () => {
     handleOptionsClick,
     handleSearch,
     onChange,
-    query
+    query,
+    selectedPost
   };
 };
 
-export default useSearchPosts
+export default useSearchPosts;

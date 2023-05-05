@@ -5,11 +5,16 @@ import useSearchPosts from "../../../hooks/useSearchPosts";
 import { btnSearchTxt, dataKey } from "../../../utils/constants";
 
 const SearchPosts = () => {
-  const { filteredData, handleOptionsClick, handleSearch, onChange, query } =
-    useSearchPosts();
+  const {
+    filteredData,
+    handleOptionsClick,
+    handleSearch,
+    onChange,
+    query,
+    selectedPost
+  } = useSearchPosts();
 
-  const disabledBtn = query.length < 1;
-
+  const disabledBtn = !selectedPost;
   const searchOptions = {
     searchData: filteredData,
     dataRenderField: dataKey,
