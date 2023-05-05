@@ -1,4 +1,4 @@
-import { IFormConfig } from "../types";
+import { IFormConfig, PostKeys } from "../types";
 
 export const locales: Intl.LocalesArgument = "en-US";
 export const options: Intl.DateTimeFormatOptions = {
@@ -31,3 +31,8 @@ export const postFormConfig: IFormConfig[] = [
     minLength: 2
   }
 ];
+
+export const dataKey = PostKeys.TITLE;
+export const postFilterFields = [dataKey];
+export const btnSearchTxt = "Search";
+export const postKeyNav = "title";
