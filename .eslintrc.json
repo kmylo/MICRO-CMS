@@ -9,18 +9,11 @@
     "ecmaFeatures": {
       "jsx": true
     },
-    // "project": ["./tsconfig.json"],
     "sourceType": "module"
   },
   "extends": [
-    "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended",
-    "plugin:prettier/recommended",
-    "plugin:import/recommended",
-    "plugin:import/errors",
-    "plugin:import/warnings",
-    "plugin:import/typescript"
+    "plugin:react/recommended"
   ],
   "ignorePatterns": ["!**/*", "config/**/*", "scripts/**/*"],
   "reportUnusedDisableDirectives": true,
@@ -61,7 +54,6 @@
     "no-throw-literal": "off",
     "prefer-const": "warn",
     "no-shadow": "off",
-    // "unused-imports/no-unused-imports": "error",
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
     "react-hooks/rules-of-hooks": "error",
@@ -91,6 +83,9 @@
         "moduleDirectory": ["node_modules", "src/"]
       },
       "import/parser": "babel-eslint"
+    },
+    "react": {
+      "version": "detect"
     }
   }
 }
