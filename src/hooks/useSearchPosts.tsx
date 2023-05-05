@@ -19,6 +19,10 @@ const useSearchPosts = () => {
     [posts, query]
   );
 
+  const selectedPost = useMemo(
+    () => posts.find((post) => query === post[postKeyNav]),
+    [posts, query]
+  );
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);
   };
@@ -27,8 +31,6 @@ const useSearchPosts = () => {
     setQuery(searchTerm);
   };
 
-  const selectedPost = posts.find((post) => query === post[postKeyNav]);
-  
   const handleSearch = () => {
     onSearch(query);
     if (selectedPost) {
@@ -37,7 +39,7 @@ const useSearchPosts = () => {
     setQuery("");
   };
 
-  const handleOptionsClick = (option: { [key: string]: any }) => {
+  const handleOptionsClick = (option: { [key: string]: string; }) => {
     onSearch(option[dataKey]);
   };
 
