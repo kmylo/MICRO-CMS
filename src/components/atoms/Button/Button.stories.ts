@@ -10,10 +10,17 @@ const meta: Meta<ButtonProps> = {
 export default meta;
 type ButtonStory = StoryObj<ButtonProps>;
 
+export const Default: ButtonStory = {
+  args: {
+    children: "Button"
+  }
+};
+
 export const Primary: ButtonStory = {
   args: {
     variant: "primary",
-    children: "Primary Button"
+    // children: "Primary Button"
+    children: `Primary ${Default?.args?.children}`
   }
 };
 
