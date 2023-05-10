@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import Input, { IInputProps } from "./Input";
 import {
   Meta,
@@ -14,47 +14,58 @@ export default {
 
 type InputStory = StoryObj<IInputProps>;
 
-export const EmptyInput = {};
+// export const EmptyInput = {};
 
 export const Default: InputStory = {
   args: {
     type: "text",
     name: "input-name",
-    id: "input-id"
+    id: "input-id",
+    placeholder: "Enter some text"
+  }
+};
+export const WithPlaceholder: InputStory = {
+  args: {
+    ...Default.args,
+    placeholder: "This is a custom placeholder"
+  }
+};
+export const WithValue: InputStory = {
+  args: {
+    ...Default.args,
+    value: "Initial value"
   }
 };
 
-// const Template: Story<IInputProps> = (args) => <Input {...args} />;
+export const WithCustomClass: InputStory = {
+  args: {
+    ...Default.args,
+    className: "custom-class"
+  }
+};
+export const WithOnChange: InputStory = {
+  args: {
+    ...Default.args,
+    onChange: () => {
+      console.log("Input value has changed");
+    }
+  }
+};
 
-// export const Default = Template.bind({});
-// Default.args = {
+
+// // Story to test forwardRef functionality
+// export const WithForwardRef: InputStory = (args) => {
+//   const inputRef = useRef(initialValue)<HTMLInputElement>(null);
+
+//   return (
+//     <div>
+//       <button onClick={() => inputRef.current?.focus()}>Focus input</button>
+//       <Input ref={inputRef} {...args} />
+//     </div>
+//   );
+// };
+// WithForwardRef.args = {
 //   type: "text",
 //   name: "input-name",
-//   id: "input-id"
-// };
-
-// export const WithPlaceholder = Template.bind({});
-// WithPlaceholder.args = {
-//   ...Default.args,
-//   placeholder: "Enter your input here"
-// };
-
-// export const WithValue = Template.bind({});
-// WithValue.args = {
-//   ...Default.args,
-//   value: "Initial value"
-// };
-
-// export const WithCustomClass = Template.bind({});
-// WithCustomClass.args = {
-//   ...Default.args,
-//   className: "custom-class"
-// };
-
-// export const WithOnChange = Template.bind({});
-// WithOnChange.args = {
-//   ...Default.args,
-//   onChange: () => {
-//     console.log("Input value has changed");
-//   }
+//   id: "input-id",
 // };
