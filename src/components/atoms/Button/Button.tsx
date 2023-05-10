@@ -15,7 +15,7 @@ const Button: FC<ButtonProps> = ({
   type = "button",
   className = "",
   disabled = false,
-  variant = "primary",
+  variant,
   children
 }) => {
   const buttonClassNames = classNames(

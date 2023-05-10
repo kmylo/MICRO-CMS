@@ -4,33 +4,43 @@ import { getPosts } from "../services/api";
 import { IPost } from "../types";
 
 const usePosts = () => {
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<Error | null>(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const { posts, setPosts } = usePostsContext();
 
   const handleUpdatePosts = (data: IPost[]): void => {
-    return setPosts(data);
+    setPosts(data);
   };
 
   useEffect(() => {
+    let isMounted = true;
+    const abortController = new AbortController();
     const fetchData = async (): Promise<void> => {
       if (posts?.length > 0) return;
-      getPosts()
-        .then((data) => {
+      try {
+        const data = await getPosts(abortController.signal);
+        if (isMounted) {
           setIsLoaded(true);
           setPosts(data);
-        })
-        .catch((e) => {
-          console.log(e);
+        }
+      } catch (e) {
+        console.log(e);
+        if (isMounted) {
           setIsLoaded(true);
-          setError(error);
-        })
-        .finally(() => {
+          setError(e as Error);
+        }
+      } finally {
+        if (isMounted) {
           setIsLoaded(false);
-        });
+        }
+      }
     };
     fetchData();
-  }, [error, posts.length, setPosts]);
+    return () => {
+      isMounted = false;
+      abortController.abort();
+    };
+  }, [posts.length, setPosts]);
 
   return { isLoaded, error, posts, handleUpdatePosts };
 };

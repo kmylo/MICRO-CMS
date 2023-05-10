@@ -8,12 +8,34 @@ export const createPost = (initialState: IPost[], newPost, handler) => {
   handler(newState);
 };
 
-export const getPosts = async (): Promise<IPost[]> =>
-  new Promise((resolve) =>
+// export const getPosts = async (): Promise<IPost[]> =>
+//   new Promise((resolve) =>
+//     setTimeout(() => {
+//       resolve(blogData.posts);
+//     }, 200)
+//   );
+
+export const getPosts = async (signal: AbortSignal): Promise<IPost[]> => {
+  const timeout = new Promise<never>((_, reject) => {
+    setTimeout(() => {
+      reject(new Error("Request timed out"));
+    }, 5000);
+  });
+
+  const fetchPosts = new Promise<IPost[]>((resolve) => {
     setTimeout(() => {
       resolve(blogData.posts);
-    }, 200)
-  );
+    }, 200);
+  });
+
+  const result = await Promise.race([fetchPosts, timeout]);
+
+  if (signal.aborted) {
+    throw new Error("Request aborted");
+  }
+
+  return result;
+};
 
 export const updatePosts = (initialState: IPost[], updatedPost, handler) => {
   const newState = initialState.map((currPost) => {
