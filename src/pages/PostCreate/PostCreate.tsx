@@ -3,12 +3,13 @@ import usePosts from "../../hooks/usePosts";
 import { useNavigate } from "react-router-dom";
 import { createPost } from "../../services/api";
 import { postFormConfig } from "../../utils/constants";
+import { IPost } from "../../types";
 
 const PostCreate = () => {
   const { posts, handleUpdatePosts } = usePosts();
   const navigate = useNavigate();
   const handleSubmit = (formData: FormData) => {
-    createPost(posts, formData, handleUpdatePosts);
+    createPost(posts, formData as unknown as IPost, handleUpdatePosts);
     navigate("/blog");
   };
   const handleCancel = () => {
