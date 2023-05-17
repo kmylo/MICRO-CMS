@@ -18,6 +18,13 @@ export const Default: ButtonStory = {
     }
   }
 };
+export const Disabled: ButtonStory = {
+  args: {
+    // variant: "primary",
+    children: "Disabled Button",
+    disabled: true
+  }
+};
 
 export const Primary: ButtonStory = {
   args: {
