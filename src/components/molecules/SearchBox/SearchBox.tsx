@@ -7,12 +7,12 @@ const SearchBox = ({
   disabledBtn,
   handleSearch,
   onChange,
-  placeholder = "ENTER THE KEYWORD",
+  placeholder = "Enter the keyword",
   value
 }): JSX.Element => {
   return (
     <div className="sm:px-4">
-      <Label labelText="Search Posts" />
+      <Label labelText="Search Posts" variant="uppercase" />
       <div className="search-wrapper flex">
         <div className="search-control-group w-full relative">
           <RiSearch2Line className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-300" />
