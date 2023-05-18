@@ -1,6 +1,9 @@
 import DOMPurify from "dompurify";
 
-const HtmlRender = ({ editableHtml }) => {
+export interface HtmlRenderProps {
+  editableHtml: string;
+}
+const HtmlRender = ({ editableHtml }: HtmlRenderProps) => {
   const htmlSanatized = DOMPurify.sanitize(editableHtml);
   // TODO: add options
   return (

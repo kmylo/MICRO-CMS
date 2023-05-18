@@ -12,7 +12,7 @@ const SearchBox = ({
 }): JSX.Element => {
   return (
     <div className="sm:px-4">
-      <Label />
+      <Label labelText="Search Posts" />
       <div className="search-wrapper flex">
         <div className="search-control-group w-full relative">
           <RiSearch2Line className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-300" />
