@@ -1,7 +1,11 @@
 import DOMPurify from "dompurify";
 
-const HtmlRender = ({ editableHtml }) => {
-  const htmlSanatized = DOMPurify.sanitize(editableHtml);
+export interface HtmlRenderProps {
+  editableHtml: string | undefined;
+}
+const HtmlRender = ({ editableHtml }: HtmlRenderProps) => {
+  const htmlSanatized =
+    (editableHtml && DOMPurify.sanitize(editableHtml)) ?? "";
   // TODO: add options
   return (
     <div className="html-render column with-border">

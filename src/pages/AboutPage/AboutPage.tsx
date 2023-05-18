@@ -1,3 +1,5 @@
+import Button from "../../components/atoms/Button/Button";
+
 const AboutPage = () => {
   return (
     <div className="text-left">
@@ -5,10 +7,10 @@ const AboutPage = () => {
       <div className="card lg:card-side bg-base-100 shadow-xl">
         <figure className="flex-[1_0_auto] p-3 ml-3">
           <img
-            loading="lazy"
+            // loading="lazy"
             alt="Jhon Doe"
             src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&h=300"
-            className="my-Avatar-img max-w-full h-auto rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"
+            className="my-Avatar-img min-h-2 min-w-2 max-w-full h-auto rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"
           />
         </figure>
         <div className="card-body ">
@@ -36,7 +38,7 @@ const AboutPage = () => {
           </p>
           <p>Click the button to listen on Spotiwhy app.</p>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary">Listen</button>
+            <Button variant="primary">Listen</Button>
           </div>
         </div>
       </div>

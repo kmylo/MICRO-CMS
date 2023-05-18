@@ -3,7 +3,7 @@ import cx from "classnames";
 
 const baseClassName =
   "block w-full bg-gray-800 border border-gray-600 rounded-lg py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:bg-gray-900 focus:border-gray-500";
-export interface ITextAreaProps {
+export interface TextAreaProps {
   className?: string;
   defaultStyle?: boolean;
   name: string;
@@ -12,7 +12,7 @@ export interface ITextAreaProps {
   value?: string;
   onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
-const TextArea = forwardRef<HTMLTextAreaElement, ITextAreaProps>(
+const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
   (
     {
       className,
