@@ -9,9 +9,9 @@ interface PostsContextValue {
   setPosts: React.Dispatch<React.SetStateAction<IPost[]>>;
 }
 
-const initState = {
-  posts: [],
-  setPosts: () => ({} as any)
+const initState: PostsContextValue = {
+  posts: [] as IPost[],
+  setPosts: (() => ({})) as React.Dispatch<React.SetStateAction<IPost[]>>
 };
 
 const PostsContext = createContext<PostsContextValue>(initState);
