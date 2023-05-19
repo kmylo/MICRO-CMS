@@ -1,15 +1,15 @@
 ## Links
 
-- Github: https://github.com/kmylo/MICRO-CMS-CHALL
+- Github: https://github.com/kmylo/MICRO-CMS
 - App: https://micro-cms-chall.vercel.app/
 - Storybook Demo: https://micro-cms-chall-storybook.vercel.app/
 
 ## Quick Start
 
 ```
-1. git clone https://github.com/kmylo/MICRO-CMS-CHALL.git
+1. git clone https://github.com/kmylo/MICRO-CMS.git
 
-2. cd MICRO-CMS-CHALL
+2. cd MICRO-CMS
 
 3. yarn
 
