@@ -8,9 +8,10 @@ import { APP_ROUTES } from "./routes/Routes";
 
 import "./App.css";
 
-function App() {
+function App({ title = "React" }) {
   return (
     <>
+      <h1>{title}</h1>
       <Suspense
         fallback={
           <Main>
