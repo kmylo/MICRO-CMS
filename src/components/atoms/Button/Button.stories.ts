@@ -1,8 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { withDesign } from "storybook-addon-designs";
 import Button, { ButtonProps } from "./Button";
 
 const meta: Meta<ButtonProps> = {
   title: "Components/atoms/Button",
+  decorators: [withDesign],
+  parameters: {
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/file/Klm6pxIZSaJFiOMX5FpTul9F/storybook-addon-designs-sample" //this is a sample
+    }
+  },
   component: Button,
   tags: ["autodocs"]
 };
