@@ -14,10 +14,15 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
+    // "baseUrl": "./src",
+    // "paths": {
+    //   "~/*": ["./*"]
+    // },
     "noImplicitAny": false,
+    "types": ["vitest/globals", "@testing-library/jest-dom"],
     "jsx": "react-jsx"
   },
-  "include": [".eslintrc.json", "src"],
+  "include": ["vite.config.ts", ".eslintrc.json", "src"],
   "references": [
     {
       "path": "./tsconfig.node.json"
